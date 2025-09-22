@@ -8,8 +8,8 @@ import { BASE_URL } from "../utils/constants";
 import React from "react";
 
 const Login = () => {
-  const [Email, setEmail] = useState("tushar@gmail.com");
-  const [Password, setPassword] = useState("Tushar@123");
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
   const [error, seterror] = useState("");
 
   const navigate = useNavigate();
