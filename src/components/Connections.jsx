@@ -23,9 +23,8 @@ const Connections = () => {
     fetchConnections();
   }, []);
 
-  if (!connections) return;
 
-  if (connections.length === 0) {
+  if (!connections || connections.length === 0) {
     return (
       <div className="no-requests">
         <p>🚀 No connections yet.</p>
@@ -55,15 +54,5 @@ const Connections = () => {
     </div>
   );
 };
-
-{
-  /* <img className="usercard-img" src={PhotoURL} />
-      <p className="usercard-heading">{fullName}</p>
-      <p className="usercard-about">{About}</p>
-      <div>
-        <button className="interested">Interested</button>
-        <button className="ignored">Ignored</button>
-      </div> */
-}
 
 export default Connections;
