@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <p>© {year} Devconnect 🚀 All rights reserved.</p>
-      <p>Made with ❤️ and ☕ in India</p>
+      <p>Made with ❤️ and ☕ in India by Tushar</p>
     </footer>
   );
 };
