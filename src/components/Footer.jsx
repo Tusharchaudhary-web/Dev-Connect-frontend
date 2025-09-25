@@ -1,24 +1,3 @@
-// import React from "react";
-
-
-// const Footer = () => {
-//   const date = new Date();
-//   const formattedDate = date.toLocaleDateString({
-//     day: "numeric",
-//     month: "long",
-//     year: "numeric",
-//   });
-
-//   return (
-//     <div className="footer">
-//       <p>©{formattedDate}-Devconnect.All rights reserved</p>
-//     </div>
-//   );
-// };
-
-// export default Footer;
-
-
 import React from "react";
 
 const Footer = () => {

@@ -6,12 +6,10 @@ import { addrequests } from "../utils/requests";
 
 const Requests = () => {
   const dispatch = useDispatch();
-  const [loading, setloading] = useState(true);
 
   const requests = useSelector((store) => store.requests);
 
   const reviewrequest = async (status, _id) => {
-    setloading(true);
     try {
       await axios.post(
         BASE_URL + "/request/review/" + status + "/" + _id,
@@ -25,8 +23,6 @@ const Requests = () => {
       dispatch(addrequests(filteredrequests));
     } catch (err) {
       console.error(err.message);
-    } finally {
-      setloading(false);
     }
   };
 
@@ -39,15 +35,11 @@ const Requests = () => {
       dispatch(addrequests(res.data.data));
     } catch (err) {
       console.error(err.message);
-    } finally {
-      setloading(false);
     }
   };
   useEffect(() => {
     fetchRequests();
   }, []);
-
-  if (loading) return <p className="loader">Loading...</p>;
 
   if (!requests || requests.length === 0) {
     return (
@@ -59,9 +51,11 @@ const Requests = () => {
   }
 
   return (
-    <>
-      <div className="requests-container">
-        <p className="request-heading">Requests</p>
+    <div className="requests-container">
+ 
+      <p className="request-heading">Requests</p>
+
+      <div className="requests-list">
         {requests.map((request) => {
           const { PhotoURL, fullName, About } = request.fromUserId;
           return (
@@ -89,7 +83,7 @@ const Requests = () => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 

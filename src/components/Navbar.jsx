@@ -34,14 +34,12 @@ const Navbar = () => {
   return (
     <nav>
       <ul className="navbar">
-        {/* Left: Logo */}
         <li>
           <Link className="DevConnect" to="/feed">
             DevConnect👨‍💻
           </Link>
         </li>
 
-        {/* Right: User info + dropdown */}
         {user && (
           <li>
             <div className="dropdown-wrapper">

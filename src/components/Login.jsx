@@ -35,10 +35,11 @@ const Login = () => {
   };
 
   return (
-  <div className="signup-page login-page">
-      <form className="form signform" onSubmit={loginHandler}> {/* same classes */}
+    <div className="signup-page login-page">
+      <form className="form signform" onSubmit={loginHandler}>
+        {" "}
+        {/* same classes */}
         <p className="heading">Sign In</p>
-
         <label>Email Address*</label>
         <input
           type="email"
@@ -47,7 +48,6 @@ const Login = () => {
           placeholder="example@email.com"
           required
         />
-
         <label>Password*</label>
         <input
           type="password"
@@ -56,11 +56,8 @@ const Login = () => {
           placeholder="Enter password"
           required
         />
-
         <p className="error">{error}</p>
-
         <button className="btn">Sign In</button>
-
         <p className="already-user">
           Don't have an account yet?
           <span>
@@ -70,8 +67,19 @@ const Login = () => {
           </span>
         </p>
       </form>
+      <p className="demo-note">
+        <span className="demo-icon">ℹ️</span> Demo credentials:
+        <br />
+        Email: <b>tushar12@gmail.com</b>
+        <br />
+        Password: <b>Demo@123</b>
+      </p>
     </div>
   );
 };
 
 export default Login;
+
+
+
+

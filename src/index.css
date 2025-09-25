@@ -4,7 +4,9 @@
   themes: light --default;
 }
 
+/*---------------Navbar opened---------------------
 
+/* ================== Global Styles ================== */
 * {
   margin: 0;
   padding: 0;
@@ -12,15 +14,14 @@
   font-family: sans-serif;
 }
 
-
-
 body {
-  background-color: #f0f2f5; 
-  margin: 0;
+  background-color: #f0f2f5;
+  padding-top: 85px;   /* navbar height */
+  padding-bottom: 60px; /* footer height */
+  overflow-x: hidden;
 }
 
-/* -----------------Navbar closed--------------- */
-
+/* ================== Navbar ================== */
 .navbar {
   list-style: none;
   display: flex;
@@ -30,138 +31,16 @@ body {
   background-color: #000;
   color: #fff;
   gap: 25px;
-  font-family: sans-serif;
   flex-wrap: wrap;
-}
-
-/* DevConnect Logo */
-.DevConnect {
-Dropdown Wrapper */
-.dropdown-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-/* User Name */
-.fullName {
-  color: #fff;
-  font-weight: 600;
-  font-size: 20px;
-  white-space: nowrap;
-}
-
-/* Profile Image */
-.navbarimg {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  cursor: pointer;
-  object-fit: cover;
-  border: 2px solid #fff;
-  transition: transform 0.2s ease;
-}
-
-.navbarimg:hover {
-  transform: scale(1.05);
-}
-
-/* Dropdown Box */
-.dropdown {
-  position: absolute;
-  top: 65px;
-  right: 0;
-  background-color: #fff;
-  color: #000;
-  min-width: 180px;
-  padding: 10px 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Dropdown Buttons */
-.dropdown button {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 10px 14px;
-  border: none;
-  background: none;
-  text-align: left;
-  cursor: pointer;
-  font-size: 18px;
-  transition: background 0.15s ease;
+  z-index: 1000;
 }
 
-.dropdown button a {
-  color: inherit;
-  text-decoration: none;
-  flex: 1;
-}
-
-.dropdown button:hover {
-  background-color: #f0f0f0;
-}
-
-/* --- Responsive Styles --- */
-
-/* Tablet View */
-@media (max-width: 900px) {
-  .DevConnect {
-    font-size: 28px;
-  }
-
-  .fullName {
-    font-size: 18px;
-  }
-
-  .navbarimg {
-    width: 50px;
-    height: 50px;
-  }
-}
-
-/* Mobile View */
-@media (max-width: 600px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 15px;
-  }
-
-  .dropdown-wrapper {
-    gap: 10px;
-  }
-
-  .fullName {
-    font-size: 16px;
-  }
-
-  .navbarimg {
-    width: 45px;
-    height: 45px;
-  }
-
-  /* ✅ Dropdown stays absolute (doesn't push navbar) */
-  .dropdown {
-    position: absolute;
-    top: 55px;
-    right: 0;
-    width: 160px;
-    border-radius: 6px;
-  }
-
-  .dropdown button {
-    font-size: 16px;
-    padding: 10px 12px;
-  }
-}
+/* Logo */
+.DevConnect {
   font-size: 32px;
   font-weight: bold;
   color: #fff;
@@ -241,7 +120,18 @@ Dropdown Wrapper */
   background-color: #f0f0f0;
 }
 
-/* --- Responsive Styles --- */
+/* ================== Main Content ================== */
+.main-content {
+  height: calc(100vh - 85px - 60px); /* viewport minus navbar/footer */
+  overflow-y: auto;
+  padding: 20px;
+}
+
+
+/*  --------------------Navbar close------------------*/
+
+
+/* ================== Responsive ================== */
 
 /* Tablet View */
 @media (max-width: 900px) {
@@ -281,11 +171,8 @@ Dropdown Wrapper */
     height: 45px;
   }
 
-  /* ✅ Dropdown stays absolute (doesn't push navbar) */
   .dropdown {
-    position: absolute;
     top: 55px;
-    right: 0;
     width: 160px;
     border-radius: 6px;
   }
@@ -464,11 +351,51 @@ input:focus {
 }
 
 
+.demo-note {
+  margin-top: 15px;           /* space from form */
+  font-size: 14px;
+  text-align: center;
+  color: #333;
+  max-width: 400px;
+    background-color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-left: auto;
+  margin-right: auto;
+  display: block;            /* changed from inline-block to block */
+  line-height: 1.5;
+}
+
+.demo-note b {
+  color: #111827;
+}
+
+.demo-icon {
+  font-size: 16px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .demo-note {
+    width: 90%;
+    font-size: 13px;
+    padding: 10px 15px;
+  }
+
+  .demo-icon {
+    font-size: 14px;
+  }
+}
+
 /* ----------------Signup close------------------------ */
 
 
 
 /* ---------------usercard open---------------- */
+
 
 .usercard {
   border: 2px solid #ddd;
@@ -482,6 +409,7 @@ input:focus {
   padding: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   background-color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* animation for all */
 }
 
 /* Image */
@@ -489,7 +417,7 @@ input:focus {
   width: 100%;
   max-width: 280px;
   height: auto;
-  aspect-ratio: 1/1; /* Perfect square ratio */
+  aspect-ratio: 1/1;
   border-radius: 8px;
   object-fit: cover;
 }
@@ -522,6 +450,7 @@ input:focus {
   width: 120px;
   height: 36px;
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .interested {
@@ -537,14 +466,18 @@ input:focus {
 
 .interested:hover {
   background-color: darkgreen;
-  cursor: pointer;
   transform: scale(1.03);
 }
 
 .ignored:hover {
   background-color: darkred;
-  cursor: pointer;
   transform: scale(1.03);
+}
+
+/* Interested click animation (all screens) */
+.interested:active {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
 }
 
 /* --- Responsive --- */
@@ -579,6 +512,7 @@ input:focus {
     width: 70%;
     margin: 15px auto;
     padding: 8px;
+    margin-top: 80px; /* gap from header */
   }
 
   .usercard-img {
@@ -593,7 +527,7 @@ input:focus {
     font-size: 0.9rem;
   }
 
-  /* Buttons will stack vertically */
+  /* Buttons stack vertically */
   .interested,
   .ignored {
     width: 100%;
@@ -755,23 +689,23 @@ input:focus {
 /* ---------------profile close---------------- */
 
 
-
-
 /* ---------------connections open---------------- */
 
-/* Container */
+/* ================== Connections Page CSS ================== */
+
+/* --- Container --- */
 .connections {
   max-width: 650px;
-  /* thoda wide, par center aligned */
   margin: 25px auto;
   padding: 20px;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  padding-bottom: 120px; /* space for fixed footer */
 }
 
-/* Heading - cool gradient */
+/* --- Heading --- */
 .connections-title {
   font-size: 26px;
   font-weight: 800;
@@ -783,7 +717,16 @@ input:focus {
   letter-spacing: 1px;
 }
 
-/* Each connection row */
+/* --- Scrollable content wrapper --- */
+.connections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: calc(100vh - 200px); /* viewport minus heading, padding, footer */
+  overflow-y: auto;
+}
+
+/* --- Each connection row --- */
 .connection-item {
   display: flex;
   align-items: center;
@@ -798,7 +741,7 @@ input:focus {
   transform: translateY(-2px);
 }
 
-/* Profile image - BIG */
+/* --- Profile Image --- */
 .connection-image {
   width: 100px;
   height: 100px;
@@ -808,7 +751,7 @@ input:focus {
   border: 3px solid #e9e9e9;
 }
 
-/* Text wrapper */
+/* --- Meta Info --- */
 .connection-meta {
   display: flex;
   flex-direction: column;
@@ -816,7 +759,6 @@ input:focus {
   min-width: 0;
 }
 
-/* Name - bold & big */
 .connection-name {
   margin: 0;
   font-size: 20px;
@@ -827,7 +769,6 @@ input:focus {
   text-overflow: ellipsis;
 }
 
-/* About - thoda bada */
 .connection-about {
   margin: 0;
   font-size: 15px;
@@ -841,79 +782,64 @@ input:focus {
   -webkit-box-orient: vertical;
 }
 
-.connection-item+.connection-item {
+.connection-item + .connection-item {
   margin-top: 14px;
 }
 
-/* Tablet */
+/* --- Scrollbar Styling --- */
+.connections-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.connections-list::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
+
+/* ================== Responsive ================== */
+
+/* Tablets */
 @media (max-width: 768px) {
-  .connections-title {
-  font-size: 20px;
-  }
-  .connections {
-    max-width: 90%;
-    padding: 16px;
-  }
-
-  .connection-image {
-    width: 80px;
-    height: 80px;
-  }
-
-  .connection-name {
-    font-size: 18px;
-  }
-
-  .connection-about {
-    font-size: 14px;
-  }
+  .connections-title { font-size: 20px; }
+  .connections { max-width: 90%; padding: 16px; }
+  .connection-image { width: 80px; height: 80px; }
+  .connection-name { font-size: 18px; }
+  .connection-about { font-size: 14px; }
 }
 
 /* Mobile */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
 
-  .connections-title {
-  font-size: 18px;
-  }
-  .connections {
-     max-width: 90%;
-    margin: 10px;
-    padding: 12px;
-  }
 
-  .connection-item {
-    gap: 10px;
-    padding: 10px;
-  }
-
-  .connection-image {
-    width: 65px;
-    height: 65px;
-  }
-
-  .connection-name {
-    font-size: 16px;
-  }
-
-  .connection-about {
-    font-size: 13px;
-  }
+  .connections-title { font-size: 18px; }
+  .connections { max-width: 90%; margin-top: 80px; padding: 12px; }
+  .connection-item { gap: 10px; padding: 10px; }
+  .connection-image { width: 65px; height: 65px; }
+  .connection-name { font-size: 16px; }
+  .connection-about { font-size: 13px; }
 }
 
 
 /* ---------------connections close ---------------- */
 
+/* ---------------requests open---------------- */
 
-/* --------------- requests open---------------- */
-
-/* Body background for contrast */
-body {
-  background-color: #f0f2f5; /* light gray */
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+/* ================== Requests Container ================== */
+.requests-container {
+  max-width: 650px;
+  margin: 20px auto 0 auto;
+  padding: 20px;
+  padding-top: 40px;    /* fixed header ke liye */
+  padding-bottom: 120px; /* footer ke liye space */
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-/* Heading */
+/* ================== Heading ================== */
 .request-heading {
   font-size: 24px;
   font-weight: 700;
@@ -921,31 +847,30 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
+  margin-top: 0;        /* first element ke liye gap control */
   margin-bottom: 20px;
   letter-spacing: 1px;
 }
 
-/* Container */
-.requests-container {
-  max-width: 650px;
-  margin: 20px auto;
-  padding: 20px;
-  background: #fff; /* clean white */
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+/* ================== Scrollable Requests List ================== */
+.requests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-height: calc(100vh - 220px); /* viewport minus heading, padding, footer */
+  overflow-y: auto;
 }
 
-/* Each request item */
+/* ================== Each Request Item ================== */
 .request-item {
   display: flex;
   align-items: center;
   gap: 15px;
   padding: 15px;
   border-radius: 10px;
-  background-color: #fafafa; /* slightly off-white for contrast */
-  border: 1px solid #e0e0e0; /* subtle border */
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  margin-bottom: 15px;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -954,7 +879,7 @@ body {
   box-shadow: 0 6px 15px rgba(0,0,0,0.12);
 }
 
-/* Profile image */
+/* ================== Profile Image ================== */
 .request-image {
   width: 80px;
   height: 80px;
@@ -963,7 +888,7 @@ body {
   border: 2px solid #ddd;
 }
 
-/* Meta info: name + about + buttons */
+/* ================== Meta Info ================== */
 .request-meta {
   display: flex;
   flex-direction: column;
@@ -971,21 +896,19 @@ body {
   flex: 1;
 }
 
-/* Name */
 .request-name {
   font-weight: 700;
   font-size: 20px;
   color: #333;
 }
 
-/* About */
 .request-about {
   font-size: 15px;
   color: #666;
   line-height: 1.4;
 }
 
-/* Buttons container */
+/* ================== Buttons ================== */
 .request-buttons {
   display: flex;
   gap: 10px;
@@ -993,7 +916,6 @@ body {
   flex-wrap: wrap;
 }
 
-/* Accept button */
 .accept-btn {
   flex: 1;
   min-width: 120px;
@@ -1013,7 +935,6 @@ body {
   transform: translateY(-1px);
 }
 
-/* Reject button */
 .reject-btn {
   flex: 1;
   min-width: 120px;
@@ -1033,80 +954,23 @@ body {
   transform: translateY(-1px);
 }
 
-/* --- Responsive --- */
-
-/* Tablet */
-@media (max-width: 900px) {
-  .request-name {
-    font-size: 18px;
-  }
-  .request-about {
-    font-size: 14px;
-  }
-  .accept-btn, .reject-btn {
-    font-size: 16px;
-    padding: 7px 10px;
-  }
-  .request-image {
-    width: 70px;
-    height: 70px;
-  }
+/* ================== Scrollbar Styling ================== */
+.requests-list::-webkit-scrollbar {
+  width: 6px;
 }
 
-/* Mobile */
-/* Mobile adjustments */
-@media (max-width: 768px) {
-
-  .request-heading {
-  font-size: 18px;
-
-  }
-  .request-item {
-    flex-direction: column;
-    align-items: center;   /* center all content horizontally */
-    gap: 12px;
-    text-align: center;    /* name/about centered */
-  }
-
-  .request-meta {
-    align-items: center;   /* meta info centered */
-  }
-
-  .request-buttons {
-    width: auto;           /* buttons shrink to content */
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .accept-btn, .reject-btn {
-    flex: 0 1 auto;        /* do not stretch to full width */
-    min-width: 120px;      /* keep original width */
-    font-size: 16px;
-    padding: 7px 12px;
-  }
-
-  .request-image {
-    width: 70px;
-    height: 70px;
-  }
-
-  .request-name {
-    font-size: 18px;
-  }
-
-  .request-about {
-    font-size: 14px;
-  }
+.requests-list::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 3px;
 }
 
+/* ================== No Requests Message ================== */
 .no-requests {
   text-align: center;
-  margin-top: 50px;
   font-size: 20px;
   font-weight: 600;
   color: #333;
-  background: #f8f9fa; /* light grey background */
+  background: #f8f9fa;
   padding: 30px 20px;
   border-radius: 12px;
   max-width: 500px;
@@ -1115,6 +979,7 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   line-height: 1.6;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 40px; /* gap from heading/container */
 }
 
 .no-requests:hover {
@@ -1128,48 +993,55 @@ body {
   margin-bottom: 8px;
 }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .no-requests {
-    font-size: 16px;
-    padding: 20px 15px;
-    max-width: 90%;
-    margin-top: 30px;
-  }
+/* ================== Responsive ================== */
 
-  .no-requests p:first-child {
-    font-size: 20px;
-  }
+/* Tablets & smaller screens */
+@media (max-width: 900px) {
+  .request-name { font-size: 18px; }
+  .request-about { font-size: 14px; }
+  .accept-btn, .reject-btn { font-size: 16px; padding: 7px 10px; }
+  .request-image { width: 70px; height: 70px; }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+  .request-heading { font-size: 18px; }
+  .request-item { flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+  .request-meta { align-items: center; }
+  .request-buttons { width: auto; justify-content: center; gap: 10px; flex-wrap: wrap; }
+  .accept-btn, .reject-btn { flex: 0 1 auto; min-width: 120px; font-size: 16px; padding: 7px 12px; }
+  .request-image { width: 70px; height: 70px; }
+  .request-name { font-size: 18px; }
+  .request-about { font-size: 14px; }
+  .no-requests { font-size: 16px; padding: 20px 15px; max-width: 90%; margin-top: 60px; }
+  .no-requests p:first-child { font-size: 20px; }
 }
 
 
-/* --------------- requests close ---------------- */
+/* ---------------requests closed---------------- */
 
 
-/* footer */
-
-
+/* --- Footer --- */
 .footer {
-  position: fixed;       /* fixed at bottom */
+  position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;           /* full width */
-  background-color: #000;  
-  color: #fff;             
-  text-align: center;     /* center text */
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
   padding: 16px 20px;
   font-size: 18px;
   font-weight: 500;
   box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-  z-index:100 ;
-  display: flex;          /* flex for vertical + horizontal centering */
-  flex-direction: column; /* stacked paragraphs */
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;               /* small gap between lines */
+  gap: 10px;
 }
-
-/* Responsive adjustments */
+/* Footer responsive adjustments */
 @media (max-width: 600px) {
   .footer {
     font-size: 14px;
@@ -1177,13 +1049,26 @@ body {
   }
 }
 
-
 /* footer */
 
 
-.toast-text{
-  text-decoration: none;
-  padding: 10px;
-  font-weight: bold;
-  font-size: 20px;
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 60%;
+  transform: translateX(-50%);
+  z-index: 10000;
 }
+
+.toast-text {
+  background-color: #28a745; /* green for success */
+text-decoration: none;
+padding: 8px;
+font-size: 18px;
+color:white;
+font-weight: bold;
+ box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+
+
