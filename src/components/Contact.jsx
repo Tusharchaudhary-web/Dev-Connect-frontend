@@ -1,8 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 
 const Contact = () => {
+
+   const user = useSelector((store) => store.user);
+
+  const isLoggedIn = user === null;
   return (
     <div className="page-content">
       <h1>Contact Us</h1>
@@ -18,7 +23,11 @@ const Contact = () => {
       <p>
         We aim to respond to all queries within 24–48 hours.
       </p>
-         <Link to="/">🔙 Back to login/signup</Link>
+      {isLoggedIn ? (
+             <Link to="/">🔙 Back to login/signup</Link>
+           ) : (
+             <Link to="/feed">🔙 Back to feed</Link>
+           )}
     </div>
   );
 };

@@ -1,8 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 
 const About = () => {
+
+   const user = useSelector((store) => store.user);
+
+  const isLoggedIn = user === null;
   return (
     <div className="page-content">
       <h1>About Us</h1>
@@ -10,7 +15,11 @@ const About = () => {
         DevConnect is a platform where developers can connect, collaborate, and share knowledge. 
         Join our community to explore projects, learn from others, and grow your skills.
       </p>
-        <Link to="/">🔙 Back to login/signup</Link>
+       {isLoggedIn ? (
+              <Link to="/">🔙 Back to login/signup</Link>
+            ) : (
+              <Link to="/feed">🔙 Back to feed</Link>
+            )}
     </div>
   );
 };
