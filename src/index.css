@@ -1202,8 +1202,8 @@ input:focus {
 
 @media (max-width: 600px) {
   .footer-links {
-    flex-direction: column;
-    gap: 5px;
+    /* flex-direction: column; */
+    gap: 8px;
   }
 
   .footer-compact {
