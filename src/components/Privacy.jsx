@@ -4,22 +4,28 @@ import { Link } from "react-router-dom";
 
 const Privacy = () => {
   const user = useSelector((store) => store.user);
-
   const isLoggedIn = user === null;
 
   return (
     <div className="page-content">
       <h1>Privacy Policy</h1>
       <p>
-        We respect your privacy and ensure that your personal information is
-        handled responsibly. We do not share your data with third parties
-        without your consent.
+        At DevConnect, your privacy is our top priority. We collect only the information necessary to provide and improve our services.
       </p>
-     {isLoggedIn ? (
-            <Link to="/">🔙 Back to login/signup</Link>
-          ) : (
-            <Link to="/feed">🔙 Back to feed</Link>
-          )}
+      <p>
+        We do not sell, rent, or share your personal information with third parties without your consent. Your data is securely stored and handled responsibly.
+      </p>
+      <p>
+        You have the right to access, update, or request deletion of your personal information at any time. For privacy-related concerns, feel free to contact us.
+      </p>
+      <p>
+        By using our platform, you agree to this Privacy Policy and consent to the practices described herein.
+      </p>
+      {isLoggedIn ? (
+        <Link to="/">🔙 Back to login/signup</Link>
+      ) : (
+        <Link to="/feed">🔙 Back to feed</Link>
+      )}
     </div>
   );
 };
