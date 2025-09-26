@@ -26,8 +26,18 @@ const Body = () => {
     }
   };
 
+  // useEffect(() => {
+  //   if (window.location.pathname === "/") return;
+  //   fetchUser();
+  // }, []);
+
   useEffect(() => {
-    if (window.location.pathname === "/") return;
+    const publicPages = ["/privacy", "/terms", "/refund", "/about", "/contact"];
+    if (
+      window.location.pathname === "/" ||
+      publicPages.includes(window.location.pathname)
+    )
+      return;
     fetchUser();
   }, []);
 
