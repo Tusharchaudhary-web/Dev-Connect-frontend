@@ -17,6 +17,7 @@ import Terms from "./components/Terms";
 import Refund from "./components/Refund";
 import Privacy from "./components/Privacy";
 import Contact from "./components/Contact";
+import Shipping from "./components/Shipping";
 
 const reactRouter = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ const reactRouter = createBrowserRouter([
       {
         path:"/contact",
         element:<Contact/>
+      },
+      {
+        path:"/shipping",
+        element:<Shipping/>
       }
     ],
   },

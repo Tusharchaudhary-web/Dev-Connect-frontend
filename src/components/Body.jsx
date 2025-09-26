@@ -32,7 +32,7 @@ const Body = () => {
   // }, []);
 
   useEffect(() => {
-    const publicPages = ["/privacy", "/terms", "/refund", "/about", "/contact"];
+    const publicPages = ["/privacy", "/terms", "/refund", "/about", "/contact","/shipping"];
     if (
       window.location.pathname === "/" ||
       publicPages.includes(window.location.pathname)
