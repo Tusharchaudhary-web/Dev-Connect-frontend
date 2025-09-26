@@ -12,6 +12,11 @@ import Error from "./components/Error";
 import React from "react";
 import Connections from "./components/Connections";
 import Requests from "./components/Requests";
+import About from "./components/About";
+import Terms from "./components/Terms";
+import Refund from "./components/Refund";
+import Privacy from "./components/Privacy";
+import Contact from "./components/Contact";
 
 const reactRouter = createBrowserRouter([
   {
@@ -21,7 +26,7 @@ const reactRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Login/>,
+        element: <Login />,
       },
       {
         path: "/feed",
@@ -29,7 +34,7 @@ const reactRouter = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <Profile/>,
+        element: <Profile />,
       },
       {
         path: "/signup",
@@ -37,12 +42,32 @@ const reactRouter = createBrowserRouter([
       },
       {
         path: "/connections",
-        element: <Connections/>,
+        element: <Connections />,
       },
       {
         path: "/requests",
         element: <Requests />,
       },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/terms",
+        element: <Terms />,
+      },
+      {
+        path: "/refund",
+        element: <Refund />,
+      },
+      {
+        path: "/privacy",
+        element: <Privacy />,
+      },
+      {
+        path:"/contact",
+        element:<Contact/>
+      }
     ],
   },
 ]);

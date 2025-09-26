@@ -35,7 +35,7 @@ const Navbar = () => {
     <nav>
       <ul className="navbar">
         <li>
-          <Link className="DevConnect" to="/feed">
+          <Link className="DevConnect">
             DevConnect👨‍💻
           </Link>
         </li>
