@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import { BASE_URL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addConnections } from "../utils/connectionSlice";
-import { Link } from "react-router-dom";
 
 const Connections = () => {
   const dispatch = useDispatch();
@@ -24,6 +23,7 @@ const Connections = () => {
     fetchConnections();
   }, []);
 
+
   if (!connections || connections.length === 0) {
     return (
       <div className="no-requests">
@@ -37,17 +37,17 @@ const Connections = () => {
     <div className="connections">
       <p className="connections-title">Connections</p>
       {connections.map((connection) => {
-        const { _id, fullName, About, PhotoURL } = connection;
         return (
-          <div className="connection-item" key={_id}>
-            <img className="connection-image" src={PhotoURL} alt={fullName} />
+          <div className="connection-item" key={connection._id}>
+            <img
+              className="connection-image"
+              src={connection.PhotoURL}
+              alt={connection.fullName}
+            />
             <div className="connection-meta">
-              <p className="connection-name">{fullName}</p>
-              <p className="connection-about">{About}</p>
+              <p className="connection-name">{connection.fullName}</p>
+              <p className="connection-about">{connection.About}</p>
             </div>
-            <Link to={/chat/ + _id}>
-              < button className="chat">chat</button>
-            </Link>
           </div>
         );
       })}
