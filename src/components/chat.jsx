@@ -64,7 +64,7 @@ const Chat = () => {
     <div className="chat-container">
       <div className="chat-header">Chat Room</div>
 
-      <div className="chatroom">
+      <div className="chatroom ">
         {message.map((msg, index) => (
           <div
             key={index}
