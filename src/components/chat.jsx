@@ -85,7 +85,7 @@ const Chat = () => {
               sendMessage();
             }
           }}
-          placeholder="Type a message..."
+          placeholder="Typing..."
         />
         <button onClick={sendMessage}>Send</button>
       </div>
