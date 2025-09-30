@@ -705,9 +705,6 @@ input:focus {
 
 /* ---------------connections open---------------- */
 
-/* ================== Connections Page CSS ================== */
-
-/* --- Container --- */
 .connections {
   max-width: 650px;
   margin: 25px auto;
@@ -871,6 +868,39 @@ input:focus {
     font-size: 13px;
   }
 }
+
+/* --- Chat Button Styling --- */
+.connection-item {
+  position: relative; /* Needed for absolute positioning of chat button */
+}
+
+.connection-item .chat {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 8px 16px;
+  background: linear-gradient(90deg, #007bff, #00d4ff);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight:bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.connection-item .chat:hover {
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+}
+
+@media (max-width: 600px) {
+  .connection-item .chat {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
 
 
 /* ---------------connections close ---------------- */
@@ -1387,29 +1417,22 @@ button.gold {
 
 /* premium */
 
-.chat{
-  border:1px solid black;
-  padding: 5px;
-  font-weight: bold;
-  border-radius: 4px;
-  color:white;
-  background-color:  #007bff;
-  border:none;
-  width: 70px;
-}
+/* chat container */
+
 
 .chat-container {
   width: 90%;
   max-width: 600px;
-  margin: 20px auto;
+  margin: 15px auto;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  height: 500px; /* thodi chhoti height */
+  height: 500px; /* slightly shorter */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  overflow: hidden; /* outer scroll nahi */
+  overflow: hidden;
   background-color: #f0f2f5;
+  transition: height 0.3s ease;
 }
 
 .chat-header {
@@ -1423,12 +1446,12 @@ button.gold {
 
 .chatroom {
   flex: 1;
-  padding: 5px;
+  padding: 10px;
   background-color: #e5ddd5;
-  overflow-y: auto; /* inner scroll */
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   scroll-behavior: smooth;
 }
 
@@ -1439,9 +1462,9 @@ button.gold {
   padding: 10px 15px;
   border-radius: 20px;
   word-wrap: break-word;
-  background-color: #ffffff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   animation: fadeIn 0.3s ease;
+  background-color: white;
 }
 
 .chat-message.sender {
@@ -1455,17 +1478,23 @@ button.gold {
 }
 
 .message-sender {
-  font-weight: bold;
-  font-size: 0.9rem;
-  margin-bottom: 5px;
-  color: #555;
+  font-weight: 600;        
+  color: #2a6ebb;            
+  text-transform: uppercase;
+  letter-spacing: 0.5px;    
+  margin-bottom: 4px;
+  font-size: 0.85rem;
 }
 
 .message-text {
-  font-size: 1rem;
-  color: #333;
+  font-weight: 400;          
+  color: #444;              
+  line-height: 1.4;
+  font-style: normal;
 }
 
+
+/* chat input */
 .chat-input-area {
   display: flex;
   padding: 10px 15px;
@@ -1507,6 +1536,7 @@ button.gold {
   background: linear-gradient(135deg, #182848, #4b6cb7);
 }
 
+/* fade animation */
 @keyframes fadeIn {
   from {opacity: 0; transform: translateY(10px);}
   to {opacity: 1; transform: translateY(0);}
@@ -1527,15 +1557,26 @@ button.gold {
   border-radius: 5px;
 }
 
-/* Responsive */
-@media (max-width: 500px) {
+/* responsive */
+@media (max-width: 600px) {
   .chat-container {
-    width: 95%;
-    height: 450px;
+    margin-top:60px;
+    width: 90%;
+    height: 450px; /* even shorter on small screens */
+  }
+
+  .chat-message {
+    max-width: 60%;
+    font-size: 0.95rem;
+  }
+
+  .message-sender {
+    font-size: 0.8rem;
   }
 
   .chat-input-area input {
     font-size: 0.9rem;
+    padding: 10px 12px;
   }
 
   .chat-input-area button {
@@ -1543,3 +1584,12 @@ button.gold {
     padding: 10px 15px;
   }
 }
+
+@media (max-width: 400px) {
+  .chat-container {
+    height: 350px;
+  }
+}
+
+
+/* chat conatiner

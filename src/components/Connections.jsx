@@ -50,7 +50,8 @@ const Connections = () => {
               <p className="connection-about">{About}</p>
             </div>
             <Link to={/chat/ + _id}>
-              <button className="chat">Chat</button>
+          <button className="chat">💬 Chat</button>
+
             </Link>
           </div>
         );
