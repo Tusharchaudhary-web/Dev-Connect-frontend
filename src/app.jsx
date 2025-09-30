@@ -18,6 +18,7 @@ import Refund from "./components/Refund";
 import Privacy from "./components/Privacy";
 import Contact from "./components/Contact";
 import Chat from "./components/Chat";
+import Shipping from "./components/Shipping"
 
 const reactRouter = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ const reactRouter = createBrowserRouter([
       {
         path: "/privacy",
         element: <Privacy />,
+      },
+      {
+        path:"/shipping",
+        element:<Shipping/>
       },
       {
         path:"/contact",

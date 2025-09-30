@@ -22,7 +22,7 @@ const Chat = () => {
     const chat = await axios.get(BASE_URL + "/chat/" + targetUserId, {
       withCredentials: true,
     });
-    console.log(chat.data.messages);
+    // console.log(chat.data.messages);
     const chatMessages = chat?.data?.messages.map((msg) => {
       return { fullName: msg?.senderId?.fullName, text: msg.text };
     });
@@ -62,18 +62,23 @@ const Chat = () => {
 
   return (
     <div className="chat-container">
-      <div className="chat-header">Chat Room</div>
+      <h1 className="chat-header">Chat Room</h1>
 
-      <div className="chatroom ">
-        {message.map((msg, index) => (
+      <div className="chat-body">
+        {message.map((msg, index) => {
+          return (
           <div
-            key={index}
-            className="chat-message" 
-          >
-            <div className="message-sender">{msg.fullName}</div>
-            <div className="message-text">{msg.text}</div>
-          </div>
-        ))}
+  key={index}
+  className={`chat-message ${
+    user.fullName === msg.fullName ? "sender" : "receiver"
+  }`}
+>
+  <div className="message-sender">{msg.fullName}</div>
+  <div className="message-text">{msg.text}</div>
+</div>
+
+          );
+        })}
       </div>
 
       <div className="chat-input-area">
@@ -86,8 +91,11 @@ const Chat = () => {
             }
           }}
           placeholder="Typing..."
+          className="chat-input"
         />
-        <button onClick={sendMessage}>Send</button>
+        <button onClick={sendMessage} className="chat-send-button">
+          Send
+        </button>
       </div>
     </div>
   );

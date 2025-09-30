@@ -705,6 +705,7 @@ input:focus {
 
 /* ---------------connections open---------------- */
 
+/* =================== Connections Container =================== */
 .connections {
   max-width: 650px;
   margin: 25px auto;
@@ -713,8 +714,7 @@ input:focus {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  padding-bottom: 120px;
-  /* space for fixed footer */
+  padding-bottom: 120px; /* space for fixed footer */
 }
 
 /* --- Heading --- */
@@ -735,7 +735,6 @@ input:focus {
   flex-direction: column;
   gap: 16px;
   max-height: calc(100vh - 200px);
-  /* viewport minus heading, padding, footer */
   overflow-y: auto;
 }
 
@@ -743,10 +742,15 @@ input:focus {
 .connection-item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 16px;
   padding: 12px;
   border-radius: 10px;
-  transition: background 0.2s ease, transform 0.15s ease;
+  position: relative; /* for button positioning */
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .connection-item:hover {
@@ -795,7 +799,7 @@ input:focus {
   -webkit-box-orient: vertical;
 }
 
-.connection-item+.connection-item {
+.connection-item + .connection-item {
   margin-top: 14px;
 }
 
@@ -809,7 +813,28 @@ input:focus {
   border-radius: 3px;
 }
 
-/* ================== Responsive ================== */
+/* --- Chat Button Styling --- */
+.connection-item .chat {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 8px 16px;
+  background: linear-gradient(90deg, #007bff, #00d4ff);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.connection-item .chat:hover {
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+}
+
+/* =================== Responsive =================== */
 
 /* Tablets */
 @media (max-width: 768px) {
@@ -834,73 +859,64 @@ input:focus {
   .connection-about {
     font-size: 14px;
   }
-}
 
-/* Mobile */
-@media (max-width: 600px) {
-
-
-  .connections-title {
-    font-size: 18px;
-  }
-
-  .connections {
-    max-width: 90%;
-    margin-top: 80px;
-    padding: 12px;
-  }
-
-  .connection-item {
-    gap: 10px;
-    padding: 10px;
-  }
-
-  .connection-image {
-    width: 65px;
-    height: 65px;
-  }
-
-  .connection-name {
-    font-size: 16px;
-  }
-
-  .connection-about {
-    font-size: 13px;
-  }
-}
-
-/* --- Chat Button Styling --- */
-.connection-item {
-  position: relative; /* Needed for absolute positioning of chat button */
-}
-
-.connection-item .chat {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 8px 16px;
-  background: linear-gradient(90deg, #007bff, #00d4ff);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-weight:bold;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.connection-item .chat:hover {
-  transform: translateY(-50%) scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
-}
-
-@media (max-width: 600px) {
   .connection-item .chat {
     padding: 6px 12px;
     font-size: 14px;
   }
 }
 
+/* Mobile */
+
+@media (max-width: 600px) {
+  .connections-title {
+    font-size: 18px;
+  }
+
+  .connections {
+    max-width: 95%;
+    padding: 20px;
+    margin-bottom: 30px;
+      padding-bottom: 80px; 
+  }
+
+  .connection-item {
+    flex-direction: column; /* stack vertically */
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .connection-item .connection-meta {
+    text-align: center;
+    width: 100%;
+  }
+
+  .connection-item .connection-image {
+    margin-bottom: 8px;
+  }
+
+  .connection-item .chat {
+    position: relative; /* remove absolute */
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 150px;      
+    padding: 5px; 
+    font-size: 18px;   
+    border-radius: 10px;
+  }
+  
+
+  .connection-name {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .connection-about {
+    font-size: 14px;
+  }
+}
 
 
 /* ---------------connections close ---------------- */
@@ -1282,7 +1298,7 @@ input:focus {
 @media (max-width: 600px) {
   .page-content {
     padding: 15px;
-    margin: 20px auto;
+    margin: 50px auto;
   }
 
   .page-content h1 {
@@ -1420,21 +1436,22 @@ button.gold {
 /* chat container */
 
 
+/* Main container */
 .chat-container {
   width: 90%;
   max-width: 600px;
-  margin: 15px auto;
+  margin: 20px auto;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  height: 500px; /* slightly shorter */
+  height: 500px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   overflow: hidden;
   background-color: #f0f2f5;
-  transition: height 0.3s ease;
 }
 
+/* Header */
 .chat-header {
   padding: 10px;
   background: linear-gradient(90deg, #4b6cb7, #182848);
@@ -1444,7 +1461,8 @@ button.gold {
   font-size: 18px;
 }
 
-.chatroom {
+/* Messages body */
+.chat-body {
   flex: 1;
   padding: 10px;
   background-color: #e5ddd5;
@@ -1455,16 +1473,15 @@ button.gold {
   scroll-behavior: smooth;
 }
 
-/* sender bubble */
+/* Message bubbles */
 .chat-message {
   display: inline-block;
-  max-width: 50%;
+  max-width: 60%;
   padding: 10px 15px;
   border-radius: 20px;
   word-wrap: break-word;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   animation: fadeIn 0.3s ease;
-  background-color: white;
 }
 
 .chat-message.sender {
@@ -1477,24 +1494,21 @@ button.gold {
   background-color: #ffffff;
 }
 
+/* Sender name */
 .message-sender {
-  font-weight: 600;        
-  color: #2a6ebb;            
-  text-transform: uppercase;
-  letter-spacing: 0.5px;    
-  margin-bottom: 4px;
-  font-size: 0.85rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #555; /* lighter than text for readability */
 }
 
+/* Message text */
 .message-text {
-  font-weight: 400;          
-  color: #444;              
-  line-height: 1.4;
-  font-style: normal;
+  font-size: 1rem;
+  color: #333;
 }
 
-
-/* chat input */
+/* Input area */
 .chat-input-area {
   display: flex;
   padding: 10px 15px;
@@ -1536,58 +1550,46 @@ button.gold {
   background: linear-gradient(135deg, #182848, #4b6cb7);
 }
 
-/* fade animation */
+/* Fade-in animation */
 @keyframes fadeIn {
   from {opacity: 0; transform: translateY(10px);}
   to {opacity: 1; transform: translateY(0);}
 }
 
-/* scrollbar */
-.chatroom::-webkit-scrollbar {
+/* Scrollbar */
+.chat-body::-webkit-scrollbar {
   width: 8px;
 }
 
-.chatroom::-webkit-scrollbar-track {
+.chat-body::-webkit-scrollbar-track {
   background: #f0f2f5;
   border-radius: 5px;
 }
 
-.chatroom::-webkit-scrollbar-thumb {
+.chat-body::-webkit-scrollbar-thumb {
   background-color: #4b6cb7;
   border-radius: 5px;
 }
 
-/* responsive */
+/* Responsive */
 @media (max-width: 600px) {
   .chat-container {
-    margin-top:60px;
-    width: 90%;
-    height: 450px; /* even shorter on small screens */
+    margin-top: 50px;
+    width: 85%;
+    height: 480px;
   }
 
   .chat-message {
-    max-width: 60%;
-    font-size: 0.95rem;
-  }
-
-  .message-sender {
-    font-size: 0.8rem;
+    max-width: 80%;
   }
 
   .chat-input-area input {
     font-size: 0.9rem;
-    padding: 10px 12px;
   }
 
   .chat-input-area button {
     font-size: 0.9rem;
     padding: 10px 15px;
-  }
-}
-
-@media (max-width: 400px) {
-  .chat-container {
-    height: 350px;
   }
 }
 
