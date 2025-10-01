@@ -53,7 +53,7 @@ const Navbar = () => {
                   if (!open && window.innerWidth <= 600) {
                     setTimeout(() => {
                       setOpen(false);
-                    }, 4000);
+                    }, 7000);
                   }
                 }}
               />

@@ -67,16 +67,15 @@ const Chat = () => {
       <div className="chat-body">
         {message.map((msg, index) => {
           return (
-          <div
-  key={index}
-  className={`chat-message ${
-    user.fullName === msg.fullName ? "sender" : "receiver"
-  }`}
->
-  <div className="message-sender">{msg.fullName}</div>
-  <div className="message-text">{msg.text}</div>
-</div>
-
+            <div
+              key={index}
+              className={`chat-message ${
+                user.fullName === msg.fullName ? "sender" : "receiver"
+              }`}
+            >
+              <div className="message-sender">{msg.fullName}</div>
+              <div className="message-text">{msg.text}</div>
+            </div>
           );
         })}
       </div>

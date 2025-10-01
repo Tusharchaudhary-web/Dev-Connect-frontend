@@ -640,7 +640,11 @@ input:focus {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
+
+  .EditProfileWrapper{
+    margin-top:40px;
+  }
   .editprofile-form .heading {
     font-size: 22px;
   }
@@ -1444,7 +1448,7 @@ button.gold {
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 430px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   overflow: hidden;
@@ -1572,24 +1576,40 @@ button.gold {
 }
 
 /* Responsive */
+/* Responsive */
 @media (max-width: 600px) {
   .chat-container {
     margin-top: 50px;
-    width: 85%;
-    height: 480px;
+    width: 90%;   /* thoda zyada responsive banaya */
+    height: 350px; /* chat box ki height chhoti kar di */
+  }
+
+  .chat-body {
+    padding: 8px;
+    gap: 6px;
+    font-size: 0.9rem;  /* text thoda chhota */
   }
 
   .chat-message {
-    max-width: 80%;
+    max-width: 75%; /* message box ko mobile pe zyada width na do */
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .chat-input-area {
+    gap: 8px;
+    padding: 8px 10px;
   }
 
   .chat-input-area input {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    padding: 10px 12px;
   }
 
   .chat-input-area button {
-    font-size: 0.9rem;
-    padding: 10px 15px;
+    font-size: 0.85rem;
+    padding: 10px 12px;  /* button chhota kiya */
+    flex-shrink: 0;      /* button cut nahi hoga */
   }
 }
 
