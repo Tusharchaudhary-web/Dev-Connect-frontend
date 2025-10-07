@@ -19,6 +19,7 @@ import Privacy from "./components/Privacy";
 import Contact from "./components/Contact";
 import Chat from "./components/Chat";
 import Shipping from "./components/Shipping"
+import Premium from "./components/Premium";
 
 const reactRouter = createBrowserRouter([
   {
@@ -77,7 +78,11 @@ const reactRouter = createBrowserRouter([
       {
         path:"/chat/:targetUserId",
         element:<Chat/>
-      }
+      },
+        {
+        path:"/premium",
+        element:<Premium/>
+      },
     ],
   },
 ]);

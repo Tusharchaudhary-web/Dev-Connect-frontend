@@ -37,21 +37,20 @@ const Connections = () => {
     <div className="connections">
       <p className="connections-title">Connections</p>
       {connections.map((connection) => {
-        const{_id,PhotoURL,fullName,About}=connection;
+        
+        if (!connection || !connection._id) return null;
+
+        const { _id, PhotoURL, fullName, About } = connection;
+
         return (
           <div className="connection-item" key={_id}>
-            <img
-              className="connection-image"
-              src={PhotoURL}
-              alt={fullName}
-            />
+            <img className="connection-image" src={PhotoURL} alt={fullName} />
             <div className="connection-meta">
               <p className="connection-name">{fullName}</p>
               <p className="connection-about">{About}</p>
             </div>
             <Link to={/chat/ + _id}>
-          <button className="chat">💬 Chat</button>
-
+              <button className="chat">💬 Chat</button>
             </Link>
           </div>
         );

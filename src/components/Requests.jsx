@@ -56,7 +56,10 @@ const Requests = () => {
       <p className="request-heading">Requests</p>
 
       <div className="requests-list">
+        
         {requests.map((request) => {
+      if (!request || !request._id || !request.fromUserId) return null;
+
           const { PhotoURL, fullName, About } = request.fromUserId;
           return (
             <div key={request._id} className="request-item">

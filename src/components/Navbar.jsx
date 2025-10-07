@@ -35,7 +35,7 @@ const Navbar = () => {
     <nav>
       <ul className="navbar">
         <li>
-          <Link className="DevConnect">
+          <Link className="DevConnect" to="/feed">
             DevConnect👨‍💻
           </Link>
         </li>
@@ -53,7 +53,7 @@ const Navbar = () => {
                   if (!open && window.innerWidth <= 600) {
                     setTimeout(() => {
                       setOpen(false);
-                    }, 7000);
+                    }, 4000);
                   }
                 }}
               />
@@ -78,6 +78,10 @@ const Navbar = () => {
                   <button>
                     <FaHome />
                     <Link to="/feed">Feed</Link>
+                  </button>
+                   <button>
+                    <FaHome />
+                    <Link to="/premium">Premium</Link>
                   </button>
                 </div>
               )}
