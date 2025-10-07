@@ -61,7 +61,9 @@ const verifyPremiumUser = async () => {
     rzp.open();
   };
   return isPremiumUser ? (
-    "You are already a Premium user"
+    <div className="premium-message-box">
+    You are already a Premium user
+  </div>
   ) : (
     <div className="premium-container">
       {/* Silver Plan */}
