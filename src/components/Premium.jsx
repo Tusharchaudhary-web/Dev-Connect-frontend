@@ -54,9 +54,7 @@ const verifyPremiumUser = async () => {
       theme: {
         color: "#F37254",
       },
-      handler: function (response) {
-        verifyPremiumUser(); // manually trigger again after payment success
-      },
+        handler: verifyPremiumUser,
     };
 
     const rzp = new window.Razorpay(options);
